@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MaltQuantity{% endblock %}
+
+{% block body %}
+    <h1>MaltQuantity</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ malt_quantity.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ malt_quantity.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('malt_quantity_index') }}">back to list</a>
+
+    <a href="{{ path('malt_quantity_edit', {'id': malt_quantity.id}) }}">edit</a>
+
+    {{ include('malt_quantity/_delete_form.html.twig') }}
+{% endblock %}

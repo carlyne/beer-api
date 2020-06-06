@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HopQuantity index{% endblock %}
+
+{% block body %}
+    <h1>HopQuantity index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hop_quantity in hop_quantities %}
+            <tr>
+                <td>{{ hop_quantity.id }}</td>
+                <td>{{ hop_quantity.quantity }}</td>
+                <td>
+                    <a href="{{ path('hop_quantity_show', {'id': hop_quantity.id}) }}">show</a>
+                    <a href="{{ path('hop_quantity_edit', {'id': hop_quantity.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('hop_quantity_new') }}">Create new</a>
+{% endblock %}
